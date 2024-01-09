@@ -5,7 +5,10 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
   const [options, setOptions] = useState(Array(5).fill(""));
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0);
   const [answerType, setAnswerType] = useState("text");
-  
+  const [userFlashcards, setUserFlashcards] = useState(
+    JSON.parse(localStorage.getItem("userFlashcards") || "[]")
+  );
+  const [selectedFlashcardIds, setSelectedFlashcardIds] = useState([]);
 
   const handleOptionChange = (index, value) => {
     const updatedOptions = [...options];
@@ -13,8 +16,40 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     setOptions(updatedOptions);
   };
 
+  const toggleFlashcardSelection = (id) => {
+    setSelectedFlashcardIds((prevIds) =>
+      prevIds.includes(id)
+        ? prevIds.filter((selectedId) => selectedId !== id)
+        : [...prevIds, id]
+    );
+  };
 
+  const handleSubmit = () => {
+    if (!question.trim()) {
+      alert("Please enter the question.");
+      return;
+    }
 
+    let validOptions;
+    if (answerType === "options") {
+      validOptions = options.filter((option) => option.trim() !== "");
+      if (validOptions.length < 2) {
+        alert("Please provide at least two options.");
+        return;
+      }
+    } else {
+      validOptions = [options[0].trim()];
+      if (!validOptions[0]) {
+        alert("Please enter the answer.");
+        return;
+      }
+    }
+
+    const correctAnswer = options[correctAnswerIndex];
+    onAddFlashcard(question, validOptions, correctAnswer);
+    onClose();
+    window.location.reload();
+  };
 
 
 
@@ -101,6 +136,40 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
             </select>
           </>
         )}
+
+<div className="flex justify-between">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
+          >
+            Add
+          </button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Cancel
+          </button>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="text-lg mb-2">Your Flashcards</h3>
+          {userFlashcards.map((flashcard) => (
+            <div key={flashcard.id} className="mb-2 flex items-center">
+              <input
+                type="checkbox"
+                checked={selectedFlashcardIds.includes(flashcard.id)}
+                onChange={() => toggleFlashcardSelection(flashcard.id)}
+                className="mr-2"
+              />
+              <span className="mb-2 p-2 flex-grow border border-black rounded-md">
+                {flashcard.question}
+              </span>
+            </div>
+          ))}
+          </div>
 
         
       </div>
