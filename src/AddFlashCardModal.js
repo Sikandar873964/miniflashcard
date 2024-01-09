@@ -16,6 +16,21 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     setOptions(updatedOptions);
   };
 
+  const handleDeleteFlashcard = () => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete the selected flashcards?"
+    );
+    if (isConfirmed) {
+      const updatedFlashcards = userFlashcards.filter(
+        (flashcard) => !selectedFlashcardIds.includes(flashcard.id)
+      );
+      localStorage.setItem("userFlashcards", JSON.stringify(updatedFlashcards));
+      setUserFlashcards(updatedFlashcards);
+      setSelectedFlashcardIds([]);
+      window.location.reload();
+    }
+  };
+
   const toggleFlashcardSelection = (id) => {
     setSelectedFlashcardIds((prevIds) =>
       prevIds.includes(id)
@@ -169,6 +184,14 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
               </span>
             </div>
           ))}
+          {selectedFlashcardIds.length > 0 && (
+            <button
+              onClick={handleDeleteFlashcard}
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            >
+              Delete Selected
+            </button>
+          )}
           </div>
 
         
