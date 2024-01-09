@@ -1,24 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function App() {
+
+  
+
+  function handleSubmit(e) {
+    console.log("handleSubmit");
+    e.preventDefault();
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <ToastContainer />
+      <form
+        className="flex flex-col items-center p-4 "
+        style={{ backgroundColor: "#FAD402" }}
+        onSubmit={handleSubmit}
+      >
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            
+          }}
+          className="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-600"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Manage Flashcards
+        </button>
+
+      
+        </form>
+</>
   );
 }
 
