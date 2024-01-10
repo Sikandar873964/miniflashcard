@@ -127,11 +127,11 @@ function App() {
         style={{ backgroundColor: "#FAD402" }}
         onSubmit={handleSubmit}
       >
-        <button
+         <button
           type="button"
           onClick={(e) => {
             e.preventDefault();
-            
+            setIsModalOpen(true);
           }}
           className="py-2 px-4 bg-blue-700 text-white rounded hover:bg-blue-600"
         >
