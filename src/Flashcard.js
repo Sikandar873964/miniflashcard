@@ -4,6 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 export default function Flashcard({ flashcard, onOptionSelect }) {
 
 
+    const setFlipWithSound = (value) => {
+        if (value) {
+          flipAudio.play();
+        }
+        setFlip(value);
+      };
+      
   return (
     <div
     className={`card ${flip ? "flip" : ""} ${
@@ -38,6 +45,12 @@ export default function Flashcard({ flashcard, onOptionSelect }) {
         </div>
       )}
     </Typography>
+    <Typography
+        className="back bg-green-200 text-green-800 p-4 rounded-md mt-4"
+        ref={backEl}
+      >
+        {flashcard.answer}
+      </Typography>
     </div>
   );
 }
