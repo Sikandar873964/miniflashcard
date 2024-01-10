@@ -19,6 +19,11 @@ export default function FlashcardList({flashcards,
     userFlashcards,
     initialTimer = 30,
     isQuizStarted,}) {
+
+    const [quizCompleted, setQuizCompleted] = useState(false);
+
+  const [category, setCategory] = useState("default");
+  const [customTimer, setCustomTimer] = useState(initialTimer);
     
   return (
     <div className="card-grid">
