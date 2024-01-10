@@ -25,13 +25,6 @@ function App() {
   const [totalQuestions, setTotalQuestions] = useState(0);
 
 
-
-
-
-
-
-
-
   const categoryEl = useRef();
   const amountEl = useRef();
 
