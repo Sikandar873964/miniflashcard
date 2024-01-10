@@ -8,11 +8,22 @@ import AddFlashcardModal from "./AddFlashcardModal";
 
 function App() {
 
+  const [flashcards, setFlashcards] = useState([]);
+  const [timer, setTimer] = useState(30);
+  const [score, setScore] = useState(0);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userFlashcards, setUserFlashcards] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [userDefinedTime, setUserDefinedTime] = useState(20);
+  const [isQuizStarted, setIsQuizStarted] = useState(false);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+
+
 
 
 
@@ -40,6 +51,16 @@ function App() {
   function handleSubmit(e) {
     console.log("handleSubmit");
     e.preventDefault();
+  }
+
+  function resetQuiz() {
+    console.log("resetQuiz");
+    setFlashcards([]);
+
+    setTimer(userDefinedTime);
+    setCurrentCardIndex(0);
+    setTotalQuestions(0);
+    setScore(0);
   }
   
   return (
@@ -143,7 +164,30 @@ function App() {
           />
         </div>
 
-      
+        <div className="form-group">
+          <button
+            className="mt-4 py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600"
+            onClick={() => {
+              if (!selectedCategory) {
+                toast.info(
+                  "Please select a category before starting the FlashCard."
+                );
+                return;
+              }
+              if (
+                selectedCategory === "user-generated" &&
+                userFlashcards.length === 0
+              ) {
+                toast.info("No flashcards found. Please add a flashcard.");
+                return;
+              }
+              setIsQuizStarted(true);
+              resetQuiz();
+            }}
+          >
+            Use FlashCards
+          </button>
+        </div>      
         </form>
 </>
   );
