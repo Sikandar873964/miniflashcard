@@ -3,6 +3,8 @@ import './App.css';
 import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import AddFlashcardModal from "./AddFlashcardModal";
+import FlashcardList from "./FlashcardList";
+
 
 
 
@@ -189,6 +191,34 @@ function App() {
           </button>
         </div>      
         </form>
+        {isQuizStarted && (
+        <div
+          className="flex justify-center items-center bg-beige "
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#0E2B6F",
+          }}
+        >
+          <div className="bg-white p-8 rounded-lg shadow-xl mt-8">
+            <FlashcardList
+              flashcards={flashcards}
+              timer={timer}
+              setTimer={setTimer}
+              currentCardIndex={currentCardIndex}
+              setCurrentCardIndex={setCurrentCardIndex}
+              totalQuestions={totalQuestions}
+              setTotalQuestions={setTotalQuestions}
+              score={score}
+              setScore={setScore}
+              resetQuiz={resetQuiz}
+              initialTimer={userDefinedTime}
+              isQuizStarted={isQuizStarted}
+            />
+          </div>
+        </div>
+      )}
 </>
   );
 }
