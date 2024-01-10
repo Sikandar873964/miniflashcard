@@ -12,6 +12,8 @@ function App() {
   const [userFlashcards, setUserFlashcards] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
+  const [userDefinedTime, setUserDefinedTime] = useState(20);
+
 
 
 
@@ -122,6 +124,24 @@ function App() {
             </select>
           </div>
         )}
+
+<div className="form-group mb-6">
+          <label
+            htmlFor="timer"
+            className="block text-sm font-medium text-gray-700"
+            style={{ color: "#0E2B6F", fontSize: 20 }}
+          >
+            Time Limit (in seconds)
+          </label>
+          <input
+            type="number"
+            id="timer"
+            value={userDefinedTime}
+            onChange={(e) => setUserDefinedTime(parseInt(e.target.value, 10))}
+            min={10}
+            className="mt-1 p-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
+        </div>
 
       
         </form>
