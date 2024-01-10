@@ -25,6 +25,26 @@ export default function FlashcardList({flashcards,
   const [category, setCategory] = useState("default");
   const [customTimer, setCustomTimer] = useState(initialTimer);
     
+  useEffect(() => {
+    setTotalQuestions(flashcards.length);
+  }, [flashcards, setTotalQuestions]);
+
+  const nextCard = useCallback(() => {
+    if (currentCardIndex < totalQuestions - 1) {
+      setCurrentCardIndex((prevIndex) => prevIndex + 1);
+      setCustomTimer(initialTimer);
+    } else {
+      setQuizCompleted(true);
+    }
+  }, [
+    currentCardIndex,
+    totalQuestions,
+    setCurrentCardIndex,
+    setCustomTimer,
+    initialTimer,
+  ]);
+
+  
   return (
     <div className="card-grid">
       {category === "user-generated" ? (
