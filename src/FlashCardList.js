@@ -44,7 +44,24 @@ export default function FlashcardList({flashcards,
     initialTimer,
   ]);
 
-  
+  useEffect(() => {
+    let interval;
+
+    if (isQuizStarted && customTimer > 0) {
+      interval = setInterval(() => {
+        setCustomTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (customTimer <= 0) {
+      nextCard();
+    }
+
+    return () => clearInterval(interval);
+  }, [customTimer, isQuizStarted, nextCard]);
+  useEffect(() => {
+    setCustomTimer(initialTimer);
+  }, [initialTimer]);
+
+
   return (
     <div className="card-grid">
       {category === "user-generated" ? (
