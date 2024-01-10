@@ -8,7 +8,18 @@ import { AiOutlineForward } from "react-icons/ai";
 import "./flaschcardlist.css";
 import { FaHourglassHalf, FaStar } from "react-icons/fa";
 
-export default function FlashcardList({}) {
+export default function FlashcardList({flashcards,
+    currentCardIndex,
+    setCurrentCardIndex,
+    totalQuestions,
+    setTotalQuestions,
+    score,
+    setScore,
+    resetQuiz,
+    userFlashcards,
+    initialTimer = 30,
+    isQuizStarted,}) {
+    
   return (
     <div className="card-grid">
       {category === "user-generated" ? (
