@@ -66,8 +66,6 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     window.location.reload();
   };
 
-
-
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center ${
@@ -152,7 +150,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
           </>
         )}
 
-<div className="flex justify-between">
+        <div className="flex justify-between">
           <button
             type="button"
             onClick={handleSubmit}
@@ -192,9 +190,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
               Delete Selected
             </button>
           )}
-          </div>
-
-        
+        </div>
       </div>
     </div>
   );
