@@ -61,6 +61,21 @@ export default function FlashcardList({flashcards,
     setCustomTimer(initialTimer);
   }, [initialTimer]);
 
+  const handleOptionSelect = (selectedOption) => {
+    const correctAnswer = flashcards[currentCardIndex].answer;
+    if (selectedOption === correctAnswer) {
+      setScore((prevScore) => prevScore + 1);
+    }
+  };
+
+  const finishQuiz = () => {
+    setQuizCompleted(true);
+  };
+
+  const takeAnotherQuiz = () => {
+    resetQuiz();
+    setQuizCompleted(false);
+  };
 
   return (
     <div className="card-grid">
