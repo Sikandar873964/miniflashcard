@@ -1,7 +1,16 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from "react";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import flipSound from "./notification.wav";
+import Typography from "@mui/material/Typography";
 
 export default function Flashcard({ flashcard, onOptionSelect }) {
+
+    const [flip, setFlip] = useState(false);
+  const [height, setHeight] = useState("initial");
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [optionDisabled, setOptionDisabled] = useState(false);
 
     const frontEl = useRef();
   const backEl = useRef();
