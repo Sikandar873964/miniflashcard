@@ -3,6 +3,20 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function Flashcard({ flashcard, onOptionSelect }) {
 
+    useEffect(() => {
+        window.addEventListener("resize", setMaxHeight);
+        return () => window.removeEventListener("resize", setMaxHeight);
+      }, []);
+
+    const handleRadioChange = (event) => {
+        if (!optionDisabled) {
+          setSelectedOption(event.target.value);
+          onOptionSelect(event.target.value);
+          setOptionDisabled(true);
+        } else {
+          alert("You can only select an option once.");
+        }
+      };
 
     const setFlipWithSound = (value) => {
         if (value) {
@@ -10,7 +24,7 @@ export default function Flashcard({ flashcard, onOptionSelect }) {
         }
         setFlip(value);
       };
-      
+
   return (
     <div
     className={`card ${flip ? "flip" : ""} ${
