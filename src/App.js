@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import AddFlashcardModal from "./AddFlashcardModal";
+import AddFlashcardModal from "./AddFlashCardModal";
 import FlashcardList from './FlashCardList';
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
