@@ -70,7 +70,7 @@ function App() {
       setScore(0);
       return;
     }
-
+//API call to get the external data form opentdb
     axios
       .get("https://opentdb.com/api.php", {
         params: {
@@ -127,6 +127,7 @@ function App() {
         style={{ backgroundColor: "#FAD402" }}
         onSubmit={handleSubmit}
       >
+        {/* button to add the flash cards manually */}
          <button
           type="button"
           onClick={(e) => {
@@ -144,6 +145,7 @@ function App() {
           onAddFlashcard={handleAddFlashcard}
         />
 
+{/* categories selection section  */}
 <div className="form-group mb-6">
           <label
             htmlFor="category"
@@ -201,7 +203,7 @@ function App() {
             </select>
           </div>
         )}
-
+{/* time limit section */}
 <div className="form-group mb-6">
           <label
             htmlFor="timer"
@@ -245,6 +247,7 @@ function App() {
           </button>
         </div>      
         </form>
+        {/* List all the flash cards */}
         {isQuizStarted && (
         <div
           className="flex justify-center items-center bg-beige "
