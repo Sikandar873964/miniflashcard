@@ -19,6 +19,8 @@ function App() {
 
 
   const categoryEl = useRef();
+  const amountEl = useRef();
+
 
 
 
@@ -97,6 +99,29 @@ function App() {
             <option value="user-generated">My Flashcards</option>
           </select>
         </div>
+
+        {selectedCategory !== "user-generated" && (
+          <div className="form-group mb-6">
+            <label
+              htmlFor="amount"
+              className="block text-sm font-medium text-gray-700"
+              style={{ color: "#0E2B6F", fontSize: 20 }}
+            >
+              Number of Questions
+            </label>
+            <select
+              id="amount"
+              ref={amountEl}
+              className="mt-1 block w-full p-2 border rounded-md shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
+              {[...Array(9)].map((_, index) => (
+                <option key={index} value={(index + 2) * 5}>
+                  {(index + 2) * 5}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
       
         </form>
