@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import AddFlashcardModal from "./AddFlashcardModal";
 import FlashcardList from './FlashCardList';
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 
@@ -29,6 +30,13 @@ function App() {
 
   const categoryEl = useRef();
   const amountEl = useRef();
+
+
+  useEffect(() => {
+    axios.get("https://opentdb.com/api_category.php").then((res) => {
+      setCategories(res.data.trivia_categories);
+    });
+  }, []);
 
 
 
