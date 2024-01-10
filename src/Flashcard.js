@@ -3,6 +3,17 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function Flashcard({ flashcard, onOptionSelect }) {
 
+    const frontEl = useRef();
+  const backEl = useRef();
+
+  const flipAudio = new Audio(flipSound);
+
+  function setMaxHeight() {
+    const frontHeight = frontEl.current.getBoundingClientRect().height;
+    const backHeight = backEl.current.getBoundingClientRect().height;
+    setHeight(Math.max(frontHeight, backHeight, 100));
+  }
+
 
     useEffect(setMaxHeight, [
         flashcard.question,
