@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import AddFlashcardModal from "./AddFlashcardModal";
 import FlashcardList from './FlashCardList';
+import axios from "axios";
+
 
 
 
@@ -42,9 +44,54 @@ function App() {
     setUserFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
   };
 
+  function decodeString(str) {
+    const textArea = document.createElement("textarea");
+    textArea.innerHTML = str;
+    return textArea.value;
+  }
+
   function handleSubmit(e) {
     console.log("handleSubmit");
     e.preventDefault();
+
+    if (selectedCategory === "user-generated") {
+      setFlashcards(userFlashcards);
+      setTotalQuestions(userFlashcards.length);
+      setCurrentCardIndex(0);
+      setTimer(userDefinedTime);
+      setScore(0);
+      return;
+    }
+
+    axios
+      .get("https://opentdb.com/api.php", {
+        params: {
+          amount: amountEl.current.value,
+          category: categoryEl.current.value,
+        },
+      })
+      .then((res) => {
+        setFlashcards(
+          res.data.results.map((questionItem, index) => {
+            const answer = decodeString(questionItem.correct_answer);
+            const options = [
+              ...questionItem.incorrect_answers.map((a) => decodeString(a)),
+              answer,
+            ];
+            return {
+              id: `${index}-${Date.now()}`,
+              question: decodeString(questionItem.question),
+              answer: answer,
+              options: options.sort(() => Math.random() - 0.5),
+            };
+          })
+        );
+
+        setCurrentCardIndex(0);
+        setTimer(userDefinedTime);
+        setTotalQuestions(res.data.results.length);
+        setScore(0);
+      })
   }
 
   function resetQuiz() {
