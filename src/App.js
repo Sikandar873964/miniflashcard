@@ -91,7 +91,14 @@ function App() {
         setTimer(userDefinedTime);
         setTotalQuestions(res.data.results.length);
         setScore(0);
-      })
+      }).catch((error) => {
+        if (error.response && error.response.status === 429) {
+          alert("Some Error Occurred. Please try again later.");
+          window.location.reload();
+        } else {
+          alert("An error occurred. Please try again.");
+        }
+      });
   }
 
   function resetQuiz() {
