@@ -3,8 +3,7 @@ import './App.css';
 import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import AddFlashcardModal from "./AddFlashcardModal";
-import FlashcardList from "./FlashcardList";
-
+import FlashcardList from './FlashCardList';
 
 
 
