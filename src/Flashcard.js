@@ -3,6 +3,22 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function Flashcard({ flashcard, onOptionSelect }) {
 
+
+    useEffect(setMaxHeight, [
+        flashcard.question,
+        flashcard.answer,
+        flashcard.options,
+      ]);
+
+
+    const handleCardClick = () => {
+        if (flashcard.options.length === 1 || flashcard.options.length === 0) {
+          setFlipWithSound(!flip);
+        } else if (selectedOption) {
+          setFlipWithSound(!flip);
+        }
+      };
+
     useEffect(() => {
         window.addEventListener("resize", setMaxHeight);
         return () => window.removeEventListener("resize", setMaxHeight);
