@@ -10,11 +10,15 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
   );
   const [selectedFlashcardIds, setSelectedFlashcardIds] = useState([]);
 
+  // function to handle options for flash cards
+
   const handleOptionChange = (index, value) => {
     const updatedOptions = [...options];
     updatedOptions[index] = value;
     setOptions(updatedOptions);
   };
+
+  // function to delete flash card 
 
   const handleDeleteFlashcard = () => {
     const isConfirmed = window.confirm(
@@ -53,6 +57,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
         return;
       }
     } else {
+      // using trim to remove spaces in input field
       validOptions = [options[0].trim()];
       if (!validOptions[0]) {
         alert("Please enter the answer.");
@@ -63,6 +68,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     const correctAnswer = options[correctAnswerIndex];
     onAddFlashcard(question, validOptions, correctAnswer);
     onClose();
+    // used to reload the current tab/window
     window.location.reload();
   };
 
@@ -73,6 +79,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
       }`}
     >
       <div className="bg-white p-8 rounded-lg shadow-xl">
+        {/* form to add flash cards */}
         <h2 className="text-xl mb-4">Add Flashcard</h2>
         <div className="mb-4">
           <input
@@ -107,7 +114,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
           onChange={(e) => setQuestion(e.target.value)}
           className="mb-4 p-2 border rounded-md w-full"
         />
-
+{/* showing options here */}
         {answerType === "options" ? (
           options.map((option, index) => (
             <input
@@ -150,7 +157,10 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
           </>
         )}
 
+        {/* submit button to submit the answers */}
+
         <div className="flex justify-between">
+          kwfmdsk
           <button
             type="button"
             onClick={handleSubmit}
@@ -182,6 +192,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
               </span>
             </div>
           ))}
+          {/* delete button to delete flash card */}
           {selectedFlashcardIds.length > 0 && (
             <button
               onClick={handleDeleteFlashcard}
