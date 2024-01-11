@@ -30,7 +30,7 @@ export default function FlashcardList({flashcards,
   const [category, setCategory] = useState("default");
   const [customTimer, setCustomTimer] = useState(initialTimer);
 
-  const [startAnim,setAnim]=useState(false)
+  const [startAnim,setStartAnim]=useState(false)
     
 
 //   setting question on page load
@@ -80,8 +80,17 @@ export default function FlashcardList({flashcards,
 //   function to finish or take another quiz
 
   const finishQuiz = () => {
+    setStartAnim(true);
+    showAnimation();
     setQuizCompleted(true);
   };
+
+  const showAnimation = ()=>{
+    setTimeout(()=>{
+        setStartAnim(false)
+    },10000)
+  }
+
 
   const takeAnotherQuiz = () => {
     resetQuiz();
@@ -91,12 +100,7 @@ export default function FlashcardList({flashcards,
 
   return (
     <div className="card-grid">
-        <Confetti
-        run={false}
-        numberOfPieces={20}
-      width={width}
-      height={height}
-    />
+       
         {/* conditionally showing user generated categories */}
       {category === "user-generated" ? (
         userFlashcards.length > 0 ? (
@@ -127,6 +131,13 @@ export default function FlashcardList({flashcards,
                   }}
                 />
               </Typography>
+
+              <Confetti
+        run={startAnim}
+        numberOfPieces={20}
+      width={width}
+      height={height}
+    />
 
               <Button
                 onClick={takeAnotherQuiz}
