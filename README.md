@@ -61,6 +61,11 @@ this will open the development server at `http://localhost:3000/miniflashcard`
 🥳 Congrats You Successfully run the project
 
 
+# Steps to host this code on github pages
+
+## Host the website on github pages
+
+### `npm run deploy `
 
 
 
