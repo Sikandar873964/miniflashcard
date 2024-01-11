@@ -1,5 +1,5 @@
 
-# Flash Card Application 
+# Flash Card Application
 
 Technologies Used:
 
@@ -37,15 +37,30 @@ Responsive Design: Thanks to Tailwind CSS, the application boasts a responsive d
 ## Use Case:
 FlashCard ideal for students, trivia enthusiasts, and lifelong learners who seek a convenient and engaging way to test their knowledge across various subjects. Its intuitive design and robust functionality make it a valuable tool for both casual learning and serious study.
 
-# Getting Started with Create React App
+# Steps To Run Locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. clone this repository using git clone (Note : Fork this repo )
 
-## Available Scripts
+### `git clone https://github.com/Sikandar873964/miniflashcard.git` -- this will pull all the files from github
 
-In the project directory, you can run:
+## 2. Install Node dependencies and react
 
-### `npm start`
+### `npm install`
+
+if you get any issues while installing the dependencies run the below command
+
+## `npm install --legacy-peer-deps`
+
+
+### 3. start the server
+
+## `npm run start`
+
+this will open the development server at `http://localhost:3000/miniflashcard`
+
+🥳 Congrats You Successfully run the project
+
+
 
 
 
