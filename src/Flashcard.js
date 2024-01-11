@@ -17,13 +17,15 @@ export default function Flashcard({ flashcard, onOptionSelect }) {
 
   const flipAudio = new Audio(flipSound);
 
+//   setting dimentions for the card
+
   function setMaxHeight() {
     const frontHeight = frontEl.current.getBoundingClientRect().height;
     const backHeight = backEl.current.getBoundingClientRect().height;
     setHeight(Math.max(frontHeight, backHeight, 100));
   }
 
-
+// setting options for the card
     useEffect(setMaxHeight, [
         flashcard.question,
         flashcard.answer,
