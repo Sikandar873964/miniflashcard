@@ -20,11 +20,15 @@ export default function FlashcardList({flashcards,
     initialTimer = 30,
     isQuizStarted,}) {
 
+        // state hooks or variables to store state
+
     const [quizCompleted, setQuizCompleted] = useState(false);
 
   const [category, setCategory] = useState("default");
   const [customTimer, setCustomTimer] = useState(initialTimer);
     
+
+//   setting question on page load
   useEffect(() => {
     setTotalQuestions(flashcards.length);
   }, [flashcards, setTotalQuestions]);
