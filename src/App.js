@@ -223,6 +223,7 @@ function App() {
         </div>
 
         <div className="form-group">
+          {/* {{setting categories here }} */}
           <button
             className="mt-4 py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600"
             onClick={() => {
