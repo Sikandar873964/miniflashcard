@@ -29,6 +29,17 @@ function App() {
   const [totalQuestions, setTotalQuestions] = useState(0);
 
 
+  useEffect(() => {
+    const storedFlashcards = JSON.parse(
+      localStorage.getItem("userFlashcards") || "[]"
+    );
+    setUserFlashcards(storedFlashcards);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
+  }, [userFlashcards]);
+
   const categoryEl = useRef();
   const amountEl = useRef();
 
