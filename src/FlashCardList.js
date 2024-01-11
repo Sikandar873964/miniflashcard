@@ -72,6 +72,8 @@ export default function FlashcardList({flashcards,
     }
   };
 
+//   function to finish or take another quiz
+
   const finishQuiz = () => {
     setQuizCompleted(true);
   };
@@ -83,6 +85,7 @@ export default function FlashcardList({flashcards,
 
   return (
     <div className="card-grid">
+        {/* conditionally showing user generated categories */}
       {category === "user-generated" ? (
         userFlashcards.length > 0 ? (
           userFlashcards.map((flashcard) => (
@@ -97,6 +100,7 @@ export default function FlashcardList({flashcards,
         )
       ) : flashcards.length > 0 ? (
         <>
+        {/* quiz completed section */}
           {quizCompleted ? (
             <>
               <Typography
