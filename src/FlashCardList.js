@@ -7,6 +7,9 @@ import TextField from "@mui/material/TextField";
 import { AiOutlineForward } from "react-icons/ai";
 import "./flaschcardlist.css";
 import { FaHourglassHalf, FaStar } from "react-icons/fa";
+import Confetti from 'react-confetti'
+
+
 
 export default function FlashcardList({flashcards,
     currentCardIndex,
@@ -82,9 +85,14 @@ export default function FlashcardList({flashcards,
     resetQuiz();
     setQuizCompleted(false);
   };
+  const { width, height } =[ 100,100]
 
   return (
     <div className="card-grid">
+        <Confetti
+      width={width}
+      height={height}
+    />
         {/* conditionally showing user generated categories */}
       {category === "user-generated" ? (
         userFlashcards.length > 0 ? (
