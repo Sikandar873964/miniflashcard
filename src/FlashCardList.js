@@ -29,6 +29,8 @@ export default function FlashcardList({flashcards,
 
   const [category, setCategory] = useState("default");
   const [customTimer, setCustomTimer] = useState(initialTimer);
+
+  const [startAnim,setAnim]=useState(false)
     
 
 //   setting question on page load
@@ -90,6 +92,8 @@ export default function FlashcardList({flashcards,
   return (
     <div className="card-grid">
         <Confetti
+        run={false}
+        numberOfPieces={20}
       width={width}
       height={height}
     />
