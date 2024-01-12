@@ -8,6 +8,7 @@ import { AiOutlineForward } from "react-icons/ai";
 import "./flaschcardlist.css";
 import { FaHourglassHalf, FaStar } from "react-icons/fa";
 import Confetti from 'react-confetti'
+import { getTableRowUtilityClass } from "@mui/material";
 
 
 
@@ -88,7 +89,7 @@ export default function FlashcardList({flashcards,
   const showAnimation = ()=>{
     setTimeout(()=>{
         setStartAnim(false)
-    },10000)
+    },5000)
   }
 
 
@@ -100,6 +101,18 @@ export default function FlashcardList({flashcards,
 
   return (
     <div className="card-grid">
+
+      {startAnim===true ? (
+        <>
+                <Confetti
+                run={startAnim}
+                numberOfPieces={20}
+              width={width}
+              height={height}
+            />
+
+        </>
+      ):''}
        
         {/* conditionally showing user generated categories */}
       {category === "user-generated" ? (
@@ -132,12 +145,7 @@ export default function FlashcardList({flashcards,
                 />
               </Typography>
 
-              <Confetti
-        run={startAnim}
-        numberOfPieces={20}
-      width={width}
-      height={height}
-    />
+              
 
               <Button
                 onClick={takeAnotherQuiz}
