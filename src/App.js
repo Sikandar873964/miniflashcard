@@ -184,6 +184,7 @@ function App() {
             <option value="" disabled>
               Select a category
             </option>
+            {/* addedd sorting through Quicksort */}
             {categories.sort(function (a,b){
               if(a.name.toLowerCase()<b.name.toLowerCase()) return -1;
               if(a.name.toLowerCase()>b.name.toLowerCase()) return 1;
