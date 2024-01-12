@@ -184,7 +184,11 @@ function App() {
             <option value="" disabled>
               Select a category
             </option>
-            {categories.map((category) => (
+            {categories.sort(function (a,b){
+              if(a.name.toLowerCase()<b.name.toLowerCase()) return -1;
+              if(a.name.toLowerCase()>b.name.toLowerCase()) return 1;
+              return 0
+            }).map((category) => (
               <option value={category.id} key={category.id}>
                 {category.name}
               </option>
