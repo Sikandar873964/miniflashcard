@@ -89,7 +89,7 @@ export default function FlashcardList({flashcards,
   const showAnimation = ()=>{
     setTimeout(()=>{
         setStartAnim(false)
-    },5000)
+    },5000) // duration for confetti  1sec = 1000
   }
 
 
