@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/miniflashcard/static/css/main.2171d991.css",
+    "main.css": "/miniflashcard/static/css/main.0e035685.css",
     "main.js": "/miniflashcard/static/js/main.351f981a.js",
     "static/media/notification.wav": "/miniflashcard/static/media/notification.9a20887c9db70ee5c972.wav",
     "index.html": "/miniflashcard/index.html",
-    "main.2171d991.css.map": "/miniflashcard/static/css/main.2171d991.css.map",
+    "main.0e035685.css.map": "/miniflashcard/static/css/main.0e035685.css.map",
     "main.351f981a.js.map": "/miniflashcard/static/js/main.351f981a.js.map"
   },
   "entrypoints": [
-    "static/css/main.2171d991.css",
+    "static/css/main.0e035685.css",
     "static/js/main.351f981a.js"
   ]
 }
