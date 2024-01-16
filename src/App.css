@@ -52,6 +52,8 @@ body {
   background-color: hsl(200, 100%, 40%);
 }
 
+
+/* card css below */
 .card-grid {
   display: grid;
   align-items: center;
