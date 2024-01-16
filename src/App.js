@@ -62,6 +62,8 @@ function App() {
     setUserFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
   };
 
+  // string decoding function 
+
   function decodeString(str) {
     const textArea = document.createElement("textarea");
     textArea.innerHTML = str;
