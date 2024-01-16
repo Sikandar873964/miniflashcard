@@ -45,6 +45,7 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     );
   };
 
+  // handles the submit button 
   const handleSubmit = () => {
     if (!question.trim()) {
       alert("Please enter the question.");

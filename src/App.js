@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 
-
+// whenever our website loads this is the first function that is called
 
 function App() {
 
@@ -17,9 +17,6 @@ function App() {
   const [timer, setTimer] = useState(30);
   const [score, setScore] = useState(0);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-
-
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userFlashcards, setUserFlashcards] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
