@@ -102,6 +102,8 @@ body {
   transform: rotateY(180deg);
 }
 
+/* flash card css below */
+
 .flashcard-options {
   margin-top: 0.5rem;
 }
