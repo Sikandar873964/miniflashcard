@@ -35,6 +35,8 @@ function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
     }
   };
 
+  // toggle function for flash card selection
+
   const toggleFlashcardSelection = (id) => {
     setSelectedFlashcardIds((prevIds) =>
       prevIds.includes(id)
