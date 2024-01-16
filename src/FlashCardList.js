@@ -95,6 +95,8 @@ export default function FlashcardList({flashcards,
   }
 
 
+  // function to take another quiz at the end of the quiz
+
   const takeAnotherQuiz = () => {
     resetQuiz();
     setQuizCompleted(false);
