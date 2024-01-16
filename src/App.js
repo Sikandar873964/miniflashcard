@@ -70,6 +70,8 @@ function App() {
     return textArea.value;
   }
 
+  // submit button  handle function
+
   function handleSubmit(e) {
     console.log("handleSubmit");
     e.preventDefault();
