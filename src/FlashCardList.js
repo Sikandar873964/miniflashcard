@@ -54,7 +54,7 @@ export default function FlashcardList({flashcards,
     setCustomTimer,
     initialTimer,
   ]);
-
+// life cycle function
   useEffect(() => {
     let interval;
 
