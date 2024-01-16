@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 
 export default function Flashcard({ flashcard, onOptionSelect }) {
 
+  // variables to store state of the component
+
     const [flip, setFlip] = useState(false);
   const [height, setHeight] = useState("initial");
   const [selectedOption, setSelectedOption] = useState(null);
