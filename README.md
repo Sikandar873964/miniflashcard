@@ -37,6 +37,10 @@ Responsive Design: Thanks to Tailwind CSS, the application boasts a responsive d
 ## Use Case:
 FlashCard ideal for students, trivia enthusiasts, and lifelong learners who seek a convenient and engaging way to test their knowledge across various subjects. Its intuitive design and robust functionality make it a valuable tool for both casual learning and serious study.
 
+# See my website in action
+
+## `https://sikandar873964.github.io/miniflashcard/`
+
 # Steps To Run Locally
 
 ## 1. clone this repository using git clone (Note : Fork this repo )
