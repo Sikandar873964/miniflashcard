@@ -123,6 +123,8 @@ function App() {
       });
   }
 
+  // requiz function handles here
+
   function resetQuiz() {
     console.log("resetQuiz");
     setFlashcards([]);
