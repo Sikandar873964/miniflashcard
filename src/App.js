@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
+  // variable that store state
   const [flashcards, setFlashcards] = useState([]);
   const [timer, setTimer] = useState(30);
   const [score, setScore] = useState(0);
