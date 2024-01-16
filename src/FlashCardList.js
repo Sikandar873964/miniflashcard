@@ -39,6 +39,7 @@ export default function FlashcardList({flashcards,
     setTotalQuestions(flashcards.length);
   }, [flashcards, setTotalQuestions]);
 
+  // show next card call back function
   const nextCard = useCallback(() => {
     if (currentCardIndex < totalQuestions - 1) {
       setCurrentCardIndex((prevIndex) => prevIndex + 1);
