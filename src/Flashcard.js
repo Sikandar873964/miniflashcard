@@ -57,7 +57,7 @@ export default function Flashcard({ flashcard, onOptionSelect }) {
           alert("You can only select an option once.");
         }
       };
-
+// custon function to flip cards with sound
     const setFlipWithSound = (value) => {
         if (value) {
           flipAudio.play();
