@@ -26,7 +26,7 @@ function App() {
   const [isQuizStarted, setIsQuizStarted] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState(0);
 
-
+//life cycle functions or custom functions in react
   useEffect(() => {
     const storedFlashcards = JSON.parse(
       localStorage.getItem("userFlashcards") || "[]"
