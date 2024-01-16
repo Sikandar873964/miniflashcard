@@ -71,7 +71,7 @@ export default function FlashcardList({flashcards,
   useEffect(() => {
     setCustomTimer(initialTimer);
   }, [initialTimer]);
-
+//function to handle  option selection
   const handleOptionSelect = (selectedOption) => {
     const correctAnswer = flashcards[currentCardIndex].answer;
     if (selectedOption === correctAnswer) {
