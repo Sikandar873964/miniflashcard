@@ -1,3 +1,6 @@
+this is for search engines to index pages on google , bing ,
+
+
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
