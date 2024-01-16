@@ -47,7 +47,7 @@ export default function Flashcard({ flashcard, onOptionSelect }) {
         window.addEventListener("resize", setMaxHeight);
         return () => window.removeEventListener("resize", setMaxHeight);
       }, []);
-
+// custom function to handle radio button changes
     const handleRadioChange = (event) => {
         if (!optionDisabled) {
           setSelectedOption(event.target.value);
