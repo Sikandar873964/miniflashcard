@@ -25,6 +25,8 @@ body {
   background-color: #f9f9f9;
   border: 2px solid #ddd;
 }
+
+/* form css below */
 .form-group {
   display: flex;
   flex-direction: column;
