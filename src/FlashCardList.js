@@ -87,6 +87,7 @@ export default function FlashcardList({flashcards,
     setQuizCompleted(true);
   };
 
+  //function to show confetti animation 
   const showAnimation = ()=>{
     setTimeout(()=>{
         setStartAnim(false)
