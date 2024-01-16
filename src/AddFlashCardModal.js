@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 function AddFlashcardModal({ isOpen, onClose, onAddFlashcard }) {
+
+  // variables to store the state of the component
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState(Array(5).fill(""));
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0);
